@@ -31,7 +31,7 @@ def make_post_login(pathPattern,okapi_url, okapi_tenant, okapi_user,okapy_passwo
             token=req.headers['x-okapi-token']
             tend = time.perf_counter()
             return token
-            #errorMessages(str(countrecord),req.status_code,req.text,tini,tend,client+"POST_logFileName.txt")
+           
         except ValueError:
             print("General Error on POST:"+req.text+"\nError Number:  "+req.status_code)
             return None
@@ -84,14 +84,14 @@ def make_get_put(pathPattern,okapi_url, okapi_tenant, okapi_token,prefix,callNum
 
 if __name__ == "__main__":
     okapi_user = "admin_uai"
-    okapy_password = "Uai.2022"
+    okapy_password = "****"
     pathPattern="/authn/login"
-    okapi_url="https://okapi-uai.folio.ebsco.com"
-    okapi_tenant="fs00001091"
+    okapi_url="https://okapi-folio"
+    okapi_tenant="xx0000"
     okapi_token=make_post_login(pathPattern,okapi_url, okapi_tenant, okapi_user,okapy_password)
     count=0
     if okapi_token is not None:
-        fileName= "C:\\Users\\asoto\\Documents\\EBSCO\\Migrations\\folio\\client_data\\uai\\holdingTest.xlsx"
+        fileName= "path"
         df = pd.read_excel(fileName, engine='openpyxl')
         df = df.apply(lambda x: x.fillna(""))
         totalrows=len(df)
